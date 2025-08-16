@@ -56,11 +56,11 @@ def preprocess_data(df):
 @st.cache_data
 def load_data():
     raw_df = pd.read_csv("artifacts/data_ingestion/cleaned_anomaly_detection.csv")
-    return FeatureEngineer(raw_df).engineer_batch()
+    df = preprocess_data(raw_df)
+    return FeatureEngineer(df).engineer_batch()
 
 # loading the df
 df = load_data()
-df = preprocess_data(df)
 st.write(df)
 
 FEATURES = ['device', 'transaction_type', 'location', 'amount', 
