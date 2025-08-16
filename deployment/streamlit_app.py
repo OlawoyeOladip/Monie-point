@@ -100,9 +100,9 @@ model = load_model()
 def get_label_encoders():
     # Remove rows where any categorical column has "Unknown"
     clean_df = df[
-        (df['device'] != "Unknown") &
-        (df['transaction_type'] != "Unknown") &
-        (df['location'] != "Unknown")
+        (df['device'] != "unknown") &
+        (df['transaction_type'] != "unknown") &
+        (df['location'] != "unknown")
     ].copy()
 
     encoders = {
