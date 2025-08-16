@@ -1,0 +1,103 @@
+version: 1
+
+tables:
+  # --- RAW LOGS  ---
+  - name: transaction_logs
+    description: Transaction log data containing raw log entries.
+    columns:
+      - name: raw_log
+        type: object
+        description: Full raw transaction log entry.
+        constraints:
+          required: true
+          unique: false
+          allowed_patterns:
+            - "^(?!.*MLAFORMED_LOG).+$"  # Excludes rows containing 'MLAFORMED_LOG'
+          min_length: 1
+    checks:
+      - name: no_null_raw_log
+        description: Ensure raw_log is not null or empty.
+        check: "raw_log IS NOT NULL AND raw_log != ''"
+      - name: no_malformed_log
+        description: Ensure 'MLAFORMED_LOG' does not appear in raw_log.
+        check: "NOT raw_log ILIKE '%MLAFORMED_LOG%'"
+
+  # --- PROCESSED / PARSED LOGS ---
+  - name: processed_transaction_logs
+    description: "Structured records parsed from raw_log."
+    columns:
+      - name: original_log
+        type: object
+        description: "The original raw log entry before parsing."
+        constraints:
+          required: true
+          min_length: 1
+
+      - name: datetime
+        type: datetime64[ns]
+        description: "Transaction timestamp extracted from original_log."
+        constraints:
+          required: true
+
+      - name: user_id
+        type: object
+        description: "User ID extracted from original_log."
+        constraints:
+          required: true
+          min: 0
+
+      - name: transaction_type
+        type: object
+        description: "Normalized transaction action/type (e.g., withdrawal, deposit, transfer, top-up, payment)."
+        constraints:
+          required: true
+          min_length: 1
+
+      - name: amount
+        type: float64
+        description: "Numeric transaction amount."
+        constraints:
+          required: true
+          min: 0
+
+      - name: currency
+        type: object
+        description: "Currency symbol or code (e.g., £, $, €, or ISO-4217 like GBP, USD, EUR)."
+        constraints:
+          required: false
+          allowed_patterns:
+            - "^[A-Z]{3}$|^[£$€]$"
+
+      - name: location
+        type: object
+        description: "Human-readable location text if available (e.g., 'ATM near Liverpool')."
+        constraints:
+          required: false
+
+      - name: device
+        type: object
+        description: "Device string if present (e.g., 'Samsung Galaxy S10')."
+        constraints:
+          required: false
+
+    checks:
+      - name: key_fields_not_null
+        description: "Ensure key fields are present."
+        check: "datetime IS NOT NULL AND user_id IS NOT NULL AND amount IS NOT NULL"
+      - name: amount_non_negative
+        description: "Amount must be >= 0."
+        check: "amount >= 0"
+      - name: user_id_non_negative
+        description: "User ID must be non-negative."
+        check: "user_id >= 0"
+      - name: currency_format_ok
+        description: "Currency must be either a 3-letter code or a currency symbol if provided."
+        check: "currency IS NULL OR currency ~ '^[A-Z]{3}$|^[£$€]$'"
+
+metadata:
+  source: transaction_log_system
+  owner: data-engineering-team
+  created_by: Taofeek
+  created_at: 2025-08-12
+  updated_at: 2025-08-15
+  notes: "Unified schema for raw and processed logs; raw schema keeps MLAFORMED_LOG exclusion"

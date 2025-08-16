@@ -1,0 +1,10 @@
+2025-08-15 02:32:08,190 - INFO - [main.py:24] - >>>>> Data Validation Stage started <<<<<<
+2025-08-15 02:32:08,197 - INFO - [common.py:34] - YAML file C:\Users\user\Desktop\moniepoint\config\config.yaml loaded successfully.
+2025-08-15 02:32:08,198 - INFO - [common.py:34] - YAML file C:\Users\user\Desktop\moniepoint\params.yaml loaded successfully.
+2025-08-15 02:32:08,220 - INFO - [common.py:34] - YAML file C:\Users\user\Desktop\moniepoint\schema.yaml loaded successfully.
+2025-08-15 02:32:08,224 - INFO - [common.py:88] - Created directory at: artifacts
+2025-08-15 02:32:08,227 - INFO - [common.py:88] - Created directory at: artifacts/data_validation
+2025-08-15 02:32:08,343 - INFO - [data_validation.py:43] - Data validation passed successfully
+2025-08-15 02:32:08,349 - INFO - [main.py:27] - >>>>> Data Validation Stage completed <<<<<<
+
+x==========x

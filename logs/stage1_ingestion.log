@@ -1,0 +1,28 @@
+2025-08-15 00:24:58,444 - INFO - [main.py:10] - >>>>> Data Ingestion Stage started <<<<<<
+2025-08-15 00:24:58,444 - INFO - [common.py:34] - YAML file C:\Users\user\Desktop\moniepoint\config\config.yaml loaded successfully.
+2025-08-15 00:24:58,444 - INFO - [common.py:34] - YAML file C:\Users\user\Desktop\moniepoint\params.yaml loaded successfully.
+2025-08-15 00:24:58,465 - INFO - [common.py:34] - YAML file C:\Users\user\Desktop\moniepoint\schema.yaml loaded successfully.
+2025-08-15 00:24:58,466 - INFO - [common.py:88] - Created directory at: artifacts
+2025-08-15 00:24:58,467 - INFO - [common.py:88] - Created directory at: artifacts/data_ingestion
+2025-08-15 00:24:58,488 - INFO - [ingest_pipeline.py:26] - The file moniepoint\monie_point_data\synthetic_dirty_transaction_logs.csv loaded successfully with 10000 rows
+2025-08-15 00:24:58,522 - INFO - [ingest_pipeline.py:31] - Data saved to artifacts\data_ingestion\anomaly_detection.csv
+2025-08-15 00:24:58,743 - INFO - [ingest_pipeline.py:48] - The file moniepoint\monie_point_data\synthetic_dirty_transaction_logs.csv loaded successfully with 7774 rows
+2025-08-15 00:24:58,828 - INFO - [ingest_pipeline.py:52] - Data saved to artifacts\data_ingestion\cleaned_anomaly_detection.csv
+2025-08-15 00:24:59,038 - INFO - [ingest_pipeline.py:66] - The file moniepoint\monie_point_data\synthetic_dirty_transaction_logs.csv loaded successfully with 7774 rows
+2025-08-15 00:24:59,038 - INFO - [main.py:13] - >>>>> Data Ingestion Stage completed <<<<<<
+
+X============X
+2025-08-15 02:32:06,440 - INFO - [main.py:11] - >>>>> Data Ingestion Stage started <<<<<<
+2025-08-15 02:32:06,451 - INFO - [common.py:34] - YAML file C:\Users\user\Desktop\moniepoint\config\config.yaml loaded successfully.
+2025-08-15 02:32:06,459 - INFO - [common.py:34] - YAML file C:\Users\user\Desktop\moniepoint\params.yaml loaded successfully.
+2025-08-15 02:32:06,531 - INFO - [common.py:34] - YAML file C:\Users\user\Desktop\moniepoint\schema.yaml loaded successfully.
+2025-08-15 02:32:06,538 - INFO - [common.py:88] - Created directory at: artifacts
+2025-08-15 02:32:06,542 - INFO - [common.py:88] - Created directory at: artifacts/data_ingestion
+2025-08-15 02:32:06,643 - INFO - [ingest_pipeline.py:26] - The file moniepoint\monie_point_data\synthetic_dirty_transaction_logs.csv loaded successfully with 10000 rows
+2025-08-15 02:32:06,743 - INFO - [ingest_pipeline.py:31] - Data saved to artifacts\data_ingestion\anomaly_detection.csv
+2025-08-15 02:32:07,590 - INFO - [ingest_pipeline.py:48] - The file moniepoint\monie_point_data\synthetic_dirty_transaction_logs.csv loaded successfully with 7774 rows
+2025-08-15 02:32:07,648 - ERROR - [ingest_pipeline.py:56] - An error occurred while loading the file: [Errno 13] Permission denied: 'artifacts\\data_ingestion\\cleaned_anomaly_detection.csv'
+2025-08-15 02:32:08,183 - INFO - [ingest_pipeline.py:66] - The file moniepoint\monie_point_data\synthetic_dirty_transaction_logs.csv loaded successfully with 7774 rows
+2025-08-15 02:32:08,188 - INFO - [main.py:14] - >>>>> Data Ingestion Stage completed <<<<<<
+
+X============X

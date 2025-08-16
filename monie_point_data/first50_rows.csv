@@ -1,0 +1,51 @@
+raw_log
+2025-07-05 19:18:10::user1069::withdrawal::2995.12::London::iPhone 13
+""
+MALFORMED_LOG
+usr:user1076|cashout|€4821.85|Glasgow|2025-07-15 12:56:05|Pixel 6
+2025-07-20 05:38:14 >> [user1034] did top-up - amt=€2191.06 - None // dev:iPhone 13
+2025-06-13 10:04:51 >> [user1068] did deposit - amt=€1691.09 - Glasgow // dev:None
+2025-07-29 23:47:37 | user: user1014 | txn: deposit of £3539.5 from Glasgow | device: iPhone 13
+MALFORMED_LOG
+2025-06-23 14:45:58 - user=user1075 - action=debit $1215.74 - ATM: Leeds - device=Samsung Galaxy S10
+2025-07-31 06:50:50 | user: user1071 | txn: cashout of $1772.13 from None | device: Nokia 3310
+2025-07-07 20:42:12 - user=user1098 - action=deposit €304.0 - ATM: Birmingham - device=Nokia 3310
+24/07/2025 22:47:06 ::: user1080 *** PURCHASE ::: amt:951.85$ @ Liverpool <Xiaomi Mi 11>
+MALFORMED_LOG
+2025-06-10 20:06:30 >> [user1025] did withdrawal - amt=€3261.07 - London // dev:iPhone 13
+14/06/2025 07:25:39 ::: user1019 *** CASHOUT ::: amt:2428.72£ @ Leeds <iPhone 13>
+user1093 2025-07-05 14:11:06 withdrawal 4926.56 None Huawei P30
+MALFORMED_LOG
+MALFORMED_LOG
+2025-07-05 06:12:48 - user=user1043 - action=withdrawal £4803.93 - ATM: Liverpool - device=iPhone 13
+2025-07-23 15:57:12 | user: user1098 | txn: purchase of €2019.47 from Glasgow | device: None
+2025-06-23 10:05:51 >> [user1048] did deposit - amt=€2096.71 - Birmingham // dev:Huawei P30
+usr:user1034|top-up|$1194.19|Liverpool|2025-06-24 05:06:27|Pixel 6
+2025-06-25 07:18:59 - user=user1008 - action=top-up £4645.16 - ATM: London - device=Xiaomi Mi 11
+2025-07-17 23:05:52 >> [user1011] did purchase - amt=£2529.92 - Birmingham // dev:iPhone 13
+MALFORMED_LOG
+2025-06-22 21:50:40 - user=user1003 - action=refund £4658.85 - ATM: Liverpool - device=Huawei P30
+2025-07-04 02:49:11::user1083::transfer::1362.47::Glasgow::Pixel 6
+user1077 2025-06-26 03:04:52 refund 2527.54 London iPhone 13
+""
+04/07/2025 01:08:12 ::: user1046 *** CASHOUT ::: amt:2804.97£ @ Manchester <Pixel 6>
+09/06/2025 22:58:25 ::: user1074 *** WITHDRAWAL ::: amt:4173.14€ @ Liverpool <Xiaomi Mi 11>
+2025-07-08 14:07:36 >> [user1086] did refund - amt=£1823.89 - Birmingham // dev:Samsung Galaxy S10
+30/07/2025 04:54:02 ::: user1096 *** DEPOSIT ::: amt:1769.04€ @ Leeds <None>
+02/07/2025 12:28:08 ::: user1010 *** TRANSFER ::: amt:4881.05£ @ Leeds <iPhone 13>
+07/07/2025 12:07:08 ::: user1013 *** TOP-UP ::: amt:3912.15$ @ Glasgow <Huawei P30>
+2025-07-24 02:04:16 >> [user1058] did deposit - amt=£1913.33 - None // dev:Samsung Galaxy S10
+2025-06-18 16:36:00 >> [user1008] did top-up - amt=£1526.65 - Glasgow // dev:iPhone 13
+MALFORMED_LOG
+usr:user1034|top-up|£4696.25|Cardiff|2025-06-25 07:41:42|Samsung Galaxy S10
+MALFORMED_LOG
+user1069 2025-07-27 06:27:32 cashout 4497.62 Cardiff iPhone 13
+2025-07-05 11:01:54::user1081::purchase::1821.74::Birmingham::None
+user1068 2025-06-19 05:02:27 deposit 3599.05 Cardiff Pixel 6
+user1020 2025-07-30 02:28:05 cashout 3486.34 Liverpool Samsung Galaxy S10
+MALFORMED_LOG
+""
+2025-06-09 04:52:32 - user=user1004 - action=purchase €2556.36 - ATM: Liverpool - device=Pixel 6
+2025-06-06 23:20:13 >> [user1029] did top-up - amt=£467.84 - Cardiff // dev:Samsung Galaxy S10
+user1020 2025-07-28 17:58:48 withdrawal 232.02 Manchester Xiaomi Mi 11
+2025-06-22 11:35:36 >> [user1067] did purchase - amt=$3592.01 - None // dev:Xiaomi Mi 11
