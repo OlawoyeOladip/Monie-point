@@ -73,6 +73,7 @@ df["location"] = df.groupby("user_id")["location"].ffill()
 df["device"] = df.groupby("user_id")["device"].ffill()
 df['transaction_type'] = df.groupby("user_id")['transaction_type'].ffill()
 df.dropna(inplace=True)
+st.write(df.shape)
 
 st.write(df['device'].unique())
 
