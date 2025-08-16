@@ -134,6 +134,7 @@ if submitted_features:
     input_df_engineered['is_business_hours'] = input_df_engineered['is_business_hours'].astype(float)
     input_df_engineered['is_weekend'] = input_df_engineered['is_weekend'].astype(float)
     
+    
     try:
         for col in ['device', 'transaction_type', 'location']:
             # Handle unseen categories by mapping to 'unknown'
