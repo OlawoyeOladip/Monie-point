@@ -58,8 +58,8 @@ def preprocess_data(df):
 @st.cache_data
 def load_data():
     raw_df = pd.read_csv("artifacts/data_ingestion/cleaned_anomaly_detection.csv")
-    df = FeatureEngineer(raw_df).engineer_batch()
     df = preprocess_data(raw_df)
+    df = FeatureEngineer(df).engineer_batch()
     return df
 
 # loading the df
