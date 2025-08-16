@@ -53,9 +53,13 @@ def preprocess_data(df):
     return df
 
 # ===== LOAD DATA & MODEL =====
+import os
+
 @st.cache_data
 def load_data():
-    raw_df = pd.read_csv(r"C:\Users\user\Desktop\moniepoint\artifacts\data_ingestion\cleaned_anomaly_detection.csv")
+    base_dir = os.path.dirname(__file__)  # folder where streamlit_app.py lives
+    csv_path = os.path.join(base_dir, "..", "artifacts", "data_ingestion", "cleaned_anomaly_detection.csv")
+    raw_df = pd.read_csv(csv_path)
     return FeatureEngineer(raw_df).engineer_batch()
 
 # loading the df
