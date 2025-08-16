@@ -70,8 +70,10 @@ class FeatureEngineer:
 
         df["location"] = df["location"].replace("Unknown", np.nan)
         df["device"] = df["device"].replace("Unknown", np.nan)
+        df['transaction_type'] = df['transaction_type'].replace("Unknown", np.nan)
         df["location"] = df.groupby("user_id")["location"].ffill()
         df["device"] = df.groupby("user_id")["device"].ffill()
+        df['transaction_type'] = df.groupby("user_id")['transaction_type'].ffill()
         
         # Unique locations used so far
         df["unique_locations_used"] = (
