@@ -29,7 +29,7 @@ st.sidebar.write("""
 # ===== DATA CLEANING & STANDARDIZATION =====
 def standardize_string(s):
     """Standardize strings by removing special chars, lowercase, and replacing spaces with underscores"""
-    if pd.isna(s) or str(s).strip().lower() in ['unknown', 'none', 'null', '']:
+    if pd.isna(s) or str(s).strip().lower() in ['unknown', 'none', 'null', '', "Unknown"]:
         return 'unknown'
     s = str(s).strip().lower()
     s = re.sub(r'[^a-z0-9]+', '_', s)  # Replace special chars with underscore
