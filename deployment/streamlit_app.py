@@ -98,14 +98,20 @@ model = load_model()
 # Initialize label encoders with standardized categories
 @st.cache_resource
 def get_label_encoders():
+    # Remove rows where any categorical column has "Unknown"
+    clean_df = df[
+        (df['device'] != "Unknown") &
+        (df['transaction_type'] != "Unknown") &
+        (df['location'] != "Unknown")
+    ].copy()
+
     encoders = {
-        'device': LabelEncoder().fit(df['device'].astype(str)),
-        'transaction_type': LabelEncoder().fit(df['transaction_type'].astype(str)),
-        'location': LabelEncoder().fit(df['location'].astype(str))
+        'device': LabelEncoder().fit(clean_df['device'].astype(str)),
+        'transaction_type': LabelEncoder().fit(clean_df['transaction_type'].astype(str)),
+        'location': LabelEncoder().fit(clean_df['location'].astype(str))
     }
     return encoders
 
-encoders = get_label_encoders()
 
 # ===== FORM FOR USER INPUT =====
 with st.form("input_form"):
