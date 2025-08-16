@@ -61,7 +61,7 @@ def load_data():
 
 # loading the df
 df = load_data()
-st.write(df)
+st.write(df[df['device'] == 'Unknown'])
 
 FEATURES = ['device', 'transaction_type', 'location', 'amount', 
            'day_of_week', 'hour_of_day', 'month', 'quarter',
