@@ -55,7 +55,7 @@ def preprocess_data(df):
 # ===== LOAD DATA & MODEL =====
 @st.cache_data
 def load_data():
-    raw_df = pd.read_csv(r"moniepoint\artifacts\data_ingestion\cleaned_anomaly_detection.csv")
+    raw_df = pd.read_csv("artifacts/data_ingestion/cleaned_anomaly_detection.csv")
     return FeatureEngineer(raw_df).engineer_batch()
 
 # loading the df
@@ -72,7 +72,7 @@ FEATURES = ['device', 'transaction_type', 'location', 'amount',
 
 @st.cache_resource
 def load_model():
-    model = joblib.load("moniepoint/artifacts/model/isolation_forest_model.joblib")
+    model = joblib.load("artifacts/model/isolation_forest_model.joblib")
     if isinstance(model, dict):
         return model['model']
     return model
