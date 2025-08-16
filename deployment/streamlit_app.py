@@ -9,7 +9,7 @@ import sys
 import re
 from sklearn.preprocessing import LabelEncoder
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.anomaly_detection.utils.common import convert_to_usd
 from features.feature_engineering import FeatureEngineer
 
