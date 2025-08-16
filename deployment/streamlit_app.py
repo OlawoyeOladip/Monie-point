@@ -65,6 +65,13 @@ def load_data():
 # loading the df
 df = load_data()
 st.write(df.head())
+
+df["location"] = df["location"].replace("unknown", np.nan)
+df["device"] = df["device"].replace("unknown", np.nan)
+df['transaction_type'] = df['transaction_type'].replace("unknown", np.nan)
+df["location"] = df.groupby("user_id")["location"].ffill()
+df["device"] = df.groupby("user_id")["device"].ffill()
+df['transaction_type'] = df.groupby("user_id")['transaction_type'].ffill()
 st.write(df['device'].unique())
 
 FEATURES = ['device', 'transaction_type', 'location', 'amount', 
