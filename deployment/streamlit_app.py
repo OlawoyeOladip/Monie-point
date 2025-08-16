@@ -55,15 +55,14 @@ def preprocess_data(df):
 # ===== LOAD DATA & MODEL =====
 import os
 
-@st.cache_data
-def load_data():
-    base_dir = os.path.dirname(__file__)  # folder where streamlit_app.py lives
-    csv_path = os.path.join(base_dir, "..", "artifacts", "data_ingestion", "cleaned_anomaly_detection.csv")
-    raw_df = pd.read_csv(csv_path)
-    return FeatureEngineer(raw_df).engineer_batch()
+uploaded_file = st.sidebar.file_uploader("Upload CSV", type=["csv"])
+if uploaded_file:
+    raw_df = pd.read_csv(uploaded_file)
+    df = FeatureEngineer(raw_df).engineer_batch()
+else:
+    st.error("Please upload a dataset to continue.")
+    st.stop()
 
-# loading the df
-df = load_data()
 
 FEATURES = ['device', 'transaction_type', 'location', 'amount', 
            'day_of_week', 'hour_of_day', 'month', 'quarter',
