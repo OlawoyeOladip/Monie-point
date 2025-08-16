@@ -61,7 +61,8 @@ def load_data():
 
 # loading the df
 df = load_data()
-st.write(df[df['device'] == 'Unknown'])
+st.write(df.head())
+st.write(df['device'].unique())
 
 FEATURES = ['device', 'transaction_type', 'location', 'amount', 
            'day_of_week', 'hour_of_day', 'month', 'quarter',
