@@ -53,16 +53,13 @@ def preprocess_data(df):
     return df
 
 # ===== LOAD DATA & MODEL =====
-import os
+@st.cache_data
+def load_data():
+    raw_df = pd.read_csv(r"moniepoint\artifacts\data_ingestion\cleaned_anomaly_detection.csv")
+    return FeatureEngineer(raw_df).engineer_batch()
 
-uploaded_file = st.sidebar.file_uploader("Upload CSV", type=["csv"])
-if uploaded_file:
-    raw_df = pd.read_csv(uploaded_file)
-    df = FeatureEngineer(raw_df).engineer_batch()
-else:
-    st.error("Please upload a dataset to continue.")
-    st.stop()
-
+# loading the df
+df = load_data()
 
 FEATURES = ['device', 'transaction_type', 'location', 'amount', 
            'day_of_week', 'hour_of_day', 'month', 'quarter',
@@ -75,7 +72,7 @@ FEATURES = ['device', 'transaction_type', 'location', 'amount',
 
 @st.cache_resource
 def load_model():
-    model = joblib.load(r"C:\Users\user\Desktop\moniepoint\artifacts\model\isolation_forest_model.joblib")
+    model = joblib.load("moniepoint/artifacts/model/isolation_forest_model.joblib")
     if isinstance(model, dict):
         return model['model']
     return model
