@@ -112,6 +112,7 @@ def get_label_encoders():
     }
     return encoders
 
+encoders = get_label_encoders()
 
 # ===== FORM FOR USER INPUT =====
 with st.form("input_form"):
