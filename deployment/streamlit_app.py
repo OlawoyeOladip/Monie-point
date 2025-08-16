@@ -72,6 +72,7 @@ df['transaction_type'] = df['transaction_type'].replace("unknown", np.nan)
 df["location"] = df.groupby("user_id")["location"].ffill()
 df["device"] = df.groupby("user_id")["device"].ffill()
 df['transaction_type'] = df.groupby("user_id")['transaction_type'].ffill()
+
 st.write(df['device'].unique())
 
 FEATURES = ['device', 'transaction_type', 'location', 'amount', 
@@ -107,9 +108,9 @@ encoders = get_label_encoders()
 # ===== FORM FOR USER INPUT =====
 with st.form("input_form"):
     # Get standardized unique values for dropdowns
-    device_options = sorted(df['device'].unique())
-    transaction_options = sorted(df['transaction_type'].unique())
-    location_options = sorted(df['location'].unique())
+    device_options = (df['device'].unique())
+    transaction_options = (df['transaction_type'].unique())
+    location_options = (df['location'].unique())
     
     datetime_input = st.date_input("Transaction Date", value=datetime.today())
     time_input = st.time_input("Transaction Time", value=datetime.now().time())
