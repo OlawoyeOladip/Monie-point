@@ -42,7 +42,7 @@ def preprocess_data(df):
     cat_cols = ['device', 'transaction_type', 'location']
     for col in cat_cols:
         df[col] = df[col].apply(standardize_string)
-        df[col] = df[col].replace("unknown", np.nan)
+        # df[col] = df[col].replace("unknown", np.nan)
     
     # Additional standardization rules
     df['transaction_type'] = df['transaction_type'].replace({
