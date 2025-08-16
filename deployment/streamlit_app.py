@@ -60,6 +60,7 @@ def load_data():
 
 # loading the df
 df = load_data()
+df = preprocess_data(df)
 st.write(df)
 
 FEATURES = ['device', 'transaction_type', 'location', 'amount', 
