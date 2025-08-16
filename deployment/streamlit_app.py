@@ -56,9 +56,9 @@ def preprocess_data(df):
 @st.cache_data
 def load_data():
     raw_df = pd.read_csv(r"C:\Users\user\Desktop\moniepoint\artifacts\data_ingestion\cleaned_anomaly_detection.csv")
-    clean_df = preprocess_data(raw_df)
-    return FeatureEngineer(clean_df).engineer_batch()
+    return FeatureEngineer(raw_df).engineer_batch()
 
+# loading the df
 df = load_data()
 
 FEATURES = ['device', 'transaction_type', 'location', 'amount', 
