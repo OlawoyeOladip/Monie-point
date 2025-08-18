@@ -11,8 +11,44 @@ import numpy as np
 from sklearn.preprocessing import LabelEncoder
 
 # sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from src.anomaly_detection.utils.common import convert_to_usd
+# from src.anomaly_detection.utils.common import convert_to_usd
 from features.feature_engineering import FeatureEngineer
+
+def convert_to_usd(df, currency_col="currency", amount_col="amount"):
+    """
+    Convert all amounts in a DataFrame to USD.
+    
+    Parameters:
+        df (pd.DataFrame): Input DataFrame.
+        currency_col (str): Name of the column containing currency codes.
+        amount_col (str): Name of the column containing amounts.
+        
+    Returns:
+        pd.DataFrame: DataFrame with a new column 'amount_usd' containing converted values.
+    """
+    # Example currency rates relative to USD
+    rates = {
+        "USD": 1.0,
+        "EUR": 1.1,  # 1 EUR = 1.1 USD
+        "GBP": 1.25  # 1 GBP = 1.25 USD
+    }
+    
+    df = df.copy()  
+    
+    # Standardize currency codes to uppercase
+    df[currency_col] = df[currency_col].str.upper()
+    
+    # Check for unknown currencies
+    unknown_currencies = set(df[currency_col]) - set(rates.keys())
+    if unknown_currencies:
+        raise ValueError(f"Unknown currencies found: {unknown_currencies}")
+    
+    # Apply conversion
+    df["amount"] = df.apply(
+        lambda row: row[amount_col] * rates[row[currency_col]], axis=1
+    )
+    
+    return df
 
 # ===== SETTINGS =====
 st.set_page_config(page_title="Anomaly Detector", layout="wide")
